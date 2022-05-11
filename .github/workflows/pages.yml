@@ -1,0 +1,15 @@
+name: pages
+on:
+  push:
+    branches:
+    - main 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository: cemacrr/lics-doc-test
+          event-type: pages
